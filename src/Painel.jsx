@@ -45,6 +45,16 @@ const airdropsIniciais = [
   }
 ];
 
+const cronograma = [
+  { dia: "Segunda", tarefa: "Verificar Grass (pontos e funcionamento)" },
+  { dia: "Terça", tarefa: "Fazer missões no Sonic (Arcade + Zealy)" },
+  { dia: "Quarta", tarefa: "Verificar Parcl (novidades e Discord)" },
+  { dia: "Quinta", tarefa: "Missões sociais no Maverick (Zealy)" },
+  { dia: "Sexta", tarefa: "Jogar no Typus Finance e verificar farming" },
+  { dia: "Sábado", tarefa: "Usar algo no Kamino (simular estratégia, visitar app)" },
+  { dia: "Domingo", tarefa: "Revisar tudo e atualizar planilha" }
+];
+
 export default function Painel() {
   const [tarefas, setTarefas] = useState(() => {
     const saved = localStorage.getItem("tarefasConcluidas");
@@ -79,6 +89,16 @@ export default function Painel() {
       <h1 style={{ fontSize: "1.8rem", fontWeight: "bold", marginBottom: "1rem" }}>
         Painel de Airdrops
       </h1>
+
+      <div style={{ background: "#fff", padding: "1rem", borderRadius: 10, marginBottom: "1rem", boxShadow: "0 2px 6px rgba(0,0,0,0.1)" }}>
+        <h2 style={{ marginBottom: "0.5rem" }}>🗓️ Cronograma da Semana</h2>
+        <ul style={{ listStyle: "none", paddingLeft: 0 }}>
+          {cronograma.map((item, idx) => (
+            <li key={idx} style={{ marginBottom: 4 }}>✅ <strong>{item.dia}:</strong> {item.tarefa}</li>
+          ))}
+        </ul>
+      </div>
+
       {airdropsIniciais.map((airdrop, idx) => (
         <div
           key={idx}
